@@ -8,26 +8,22 @@ This project is bootstrapped using the [T3 Stack](https://create.t3.gg/), and su
 
 After you input your options, click on the <b>Search</b> button to see results!
 
-<br />
-<hr />
-<br />
-
 ## Project Setup
 
 <br />
 
 ### 1. Install Dependencies
 
-If you have `pnpm` installed locally (if not [install pnpm](https://formulae.brew.sh/formula/node)), in the terminal run:
+This project is using `pnpm` as the package manager. If you don't have pnpm installed locally, follow the install steps here to [install pnpm](https://pnpm.io/installation):
+
+```terminal
+$  npm install -g pnpm
+```
+
+After `pnpm` is installed, in the terminal run:
 
 ```terminal
 $  pnpm install
-```
-
-If you have `npm` installed locally (if not follow [install npm](https://pnpm.io/installation)), in the terminal run:
-
-```terminal
-$  npm install
 ```
 
 <br />
@@ -48,7 +44,7 @@ For security, the `.env` file and its contents were not published to this reposi
 To run this project locally, in the terminal run:
 
 ```terminal
-$  npm run dev
+$  pnpm dev
 ```
 
 The app will be hosted at [http://localhost:3000](http://localhost:3000) <i>(Note: The app will default to port 3000 and will handle if a process is running on the port)</i>
