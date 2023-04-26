@@ -9,12 +9,12 @@ export const BrowseEvents: React.FC = () => {
   const [endDate, setEndDate] = useState("");
   const [resultSize, setResultSize] = useState(RESULT_SIZE_DEFAULT);
 
-  // Converting to acceptable format
+  // Converting date to acceptable format for Ticketmaster API
   function convertDateToISO(date: string) {
     return new Date(date).toISOString().slice(0, 19) + "Z";
   }
 
-  // Only sending data that is populated
+  // Constructing payload of values that have been configured
   const constructPayload = () => {
     const searchTermIsNotEmpty = searchTerm !== "";
 
@@ -26,6 +26,7 @@ export const BrowseEvents: React.FC = () => {
     };
   };
 
+  // Querying Ticketmaster tRPC procedure
   const {
     data: result,
     refetch: refetchSearch,
@@ -36,10 +37,6 @@ export const BrowseEvents: React.FC = () => {
     { ...constructPayload() },
     { enabled: false }
   );
-
-  useEffect(() => {
-    console.log(result);
-  }, [result]);
 
   const handleTicketmasterSearch = () => {
     void refetchSearch();
@@ -56,6 +53,12 @@ export const BrowseEvents: React.FC = () => {
   const successfulWithResults = result && result.data.length > 0 && isSuccess;
   const successfulWithNoResults =
     result && result.data.length === 0 && isSuccess;
+
+  // DEBUGGING
+  // Can be used to inspect tRPC response
+  useEffect(() => {
+    console.log(result);
+  }, [result]);
 
   return (
     <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">

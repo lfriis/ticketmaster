@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-import searchTicketmaster from "~/utils/ticketmaster";
+import { searchTicketmaster } from "~/utils/ticketmaster.service";
 
+// Procedure to intake query options from frontend and send payload to Ticketmaster helper
 export const ticketmasterRouter = createTRPCRouter({
   search: publicProcedure
     .input(
